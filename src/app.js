@@ -4,10 +4,19 @@ var user = {
     location: 'PL'
 }
 
+function getLocation(location) {
+    if(location) {
+        return location;
+    } else {
+        return 'Unknown';
+    }
+}
+
 var template = (
     <div>
-        <p>React test from template</p>
         <p>{user.name}</p>
+        <p>Age: {user.age}</p>
+        <p>Location: {getLocation(user.location)}</p>
     </div>
 );
 

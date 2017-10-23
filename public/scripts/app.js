@@ -6,18 +6,33 @@ var user = {
     location: 'PL'
 };
 
+function getLocation(location) {
+    if (location) {
+        return location;
+    } else {
+        return 'Unknown';
+    }
+}
+
 var template = React.createElement(
     'div',
     null,
     React.createElement(
         'p',
         null,
-        'React test from template'
+        user.name
     ),
     React.createElement(
         'p',
         null,
-        user.name
+        'Age: ',
+        user.age
+    ),
+    React.createElement(
+        'p',
+        null,
+        'Location: ',
+        getLocation(user.location)
     )
 );
 
