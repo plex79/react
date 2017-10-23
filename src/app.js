@@ -1,7 +1,13 @@
+var user = {
+    name: 'Me',
+    age: '38',
+    location: 'PL'
+}
+
 var template = (
     <div>
         <p>React test from template</p>
-        <p>some text</p>
+        <p>{user.name}</p>
     </div>
 );
 

@@ -1,5 +1,11 @@
 'use strict';
 
+var user = {
+    name: 'Me',
+    age: '38',
+    location: 'PL'
+};
+
 var template = React.createElement(
     'div',
     null,
@@ -11,7 +17,7 @@ var template = React.createElement(
     React.createElement(
         'p',
         null,
-        'some text'
+        user.name
     )
 );
 
