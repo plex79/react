@@ -2,24 +2,50 @@ var user = {
     name: 'Me',
     age: '38',
     location: 'PL'
-}
+};
 
 function getLocation(location) {
     if(location) {
-        return location;
-    } else {
-        return 'Unknown';
+        return <p>Location: {location}</p>;
     }
 }
 
 var template = (
     <div>
-        <p>{user.name}</p>
-        <p>Age: {user.age}</p>
-        <p>Location: {getLocation(user.location)}</p>
+        <p>{user.name ? user.name : 'Anonim'}</p>
+        {(user.age && user.age >= 18) && <p>Age: {user.age}</p>}
+        {getLocation(user.location)}
+    </div>
+);
+
+//
+
+var app = {
+    title: 'Some title',
+    subtitle: 'Some subtitle',
+    options: ['One', 'Two']
+};
+
+function checkSubtitle(sub) {
+    if(sub) {
+        return <p>{app.subtitle}</p>;
+    }
+}
+// moze byc tez 
+// {app.subtitle && <p>{app.subtitle}</p>}
+
+var template2 = (
+    <div>
+        <h1>{app.title}</h1>
+        {checkSubtitle(app.subtitle)}
+        <p>{(app.options && app.options.length > 0) ? 'Here are ur options' : 'No options'}</p>
+        <ol>
+            <li>item 1</li>
+            <li>item 2</li>
+        </ol>
     </div>
 );
 
 var appRoot = document.getElementById('app');
 
-ReactDOM.render(template, appRoot);
+ReactDOM.render(template2, appRoot);
