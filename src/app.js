@@ -1,51 +1,32 @@
-var user = {
-    name: 'Me',
-    age: '38',
-    location: 'PL'
-};
+let count = 0;
 
-function getLocation(location) {
-    if(location) {
-        return <p>Location: {location}</p>;
-    }
+const addOne = () => {
+    count++;
+    renderCounterApp();
 }
 
-var template = (
-    <div>
-        <p>{user.name ? user.name : 'Anonim'}</p>
-        {(user.age && user.age >= 18) && <p>Age: {user.age}</p>}
-        {getLocation(user.location)}
-    </div>
-);
+const minusOne = () => {
+    count--;
+    renderCounterApp();
+}
 
-//
+const reset = () => {
+    count = 0;
+    renderCounterApp();
+}
 
-var app = {
-    title: 'Some title',
-    subtitle: 'Some subtitle',
-    options: ['One', 'Two']
+const appRoot = document.getElementById('app');
+
+const renderCounterApp = () => {
+    const templateTwo = (
+        <div>
+            <h1>Count: {count}</h1>
+            <button onClick={addOne}>+1</button>
+            <button onClick={minusOne}>-1</button>
+            <button onClick={reset}>RESET</button>
+        </div>
+    );
+    ReactDOM.render(templateTwo, appRoot);
 };
 
-function checkSubtitle(sub) {
-    if(sub) {
-        return <p>{app.subtitle}</p>;
-    }
-}
-// moze byc tez 
-// {app.subtitle && <p>{app.subtitle}</p>}
-
-var template2 = (
-    <div>
-        <h1>{app.title}</h1>
-        {checkSubtitle(app.subtitle)}
-        <p>{(app.options && app.options.length > 0) ? 'Here are ur options' : 'No options'}</p>
-        <ol>
-            <li>item 1</li>
-            <li>item 2</li>
-        </ol>
-    </div>
-);
-
-var appRoot = document.getElementById('app');
-
-ReactDOM.render(template2, appRoot);
+renderCounterApp();
