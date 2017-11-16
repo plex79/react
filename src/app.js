@@ -20,3 +20,8 @@ console.log(canDrink(20));
 console.log(canDrink(24));
 console.log(isSenior(64));
 console.log(isSenior(65));
+
+console.log('----------------');
+import validator from 'validator';
+
+console.log(validator.isEmail('test@22.pl'));
